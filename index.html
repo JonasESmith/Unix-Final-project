@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Advising</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+		<!-- Header -->
+			<header id="header">
+				<h1>Advising appointment</h1>
+			</header>
+
+		<!-- Signup Form -->
+			<form id="signup-form" method="post" action="#">
+					<script>
+							function advChange() {
+								switch(document.getElementById('advSelect').value){
+							case '0': 
+								document.getElementById('phone').value ='Office phone number';
+								document.getElementById('email').value ='Advisor email address';
+								break;   
+							case '1': 
+								document.getElementById('phone').value ='1-417-369-2309';
+								document.getElementById('email').value ='pinete@mssu.edu';
+								break;   
+							case '2': 
+								document.getElementById('phone').value ='1-417-369-2310';
+								document.getElementById('email').value ='collins@mssu.edu';
+								break;          
+							case '3': 
+								document.getElementById('phone').value ='1-417-369-2311';
+								document.getElementById('email').value ='oaks@mssu.edu';
+								break;          
+							case '4': 
+								document.getElementById('phone').value ='1-417-369-2312';
+								document.getElementById('email').value ='boswell@mssu.edu';
+								break;          
+							case '5': 
+								document.getElementById('phone').value ='1-417-369-2313';
+								document.getElementById('email').value ='curtis@mssu.edu';
+								break;          
+								}
+							}	
+						</script>
+				<select style="width: 100px" onchange="advChange()" id="advSelect" onclick="advChange()">
+					<option style="color:gray" value="0">Advisor</option>
+					<option style="color:gray" value="1">Pinete</option>
+					<option style="color:gray" value="2">Collins</option>
+					<option style="color:gray" value="3">Oaks</option>
+					<option style="color:gray" value="4">Boswell</option>
+					<option style="color:gray" value="5">Curtis</option>
+				</select>
+				<input type="email" id="email" placeholder="Advisor email address" />
+				<input type="text" name="phone" id="phone" placeholder="Office phone number" />
+
+				<select style="width: 100px">
+					<option style="color:gray" value="0"> Day </option>
+					<option style="color:gray" value="1"> Monday</option>
+					<option style="color:gray" value="2"> Tuesday</option>
+					<option style="color:gray" value="3"> Wednsday</option>
+					<option style="color:gray" value="4"> Thursday</option>
+					<option style="color:gray" value="5"> Friday</option>
+				</select>
+				
+				<select style="width: 200px">
+					<option style="color:gray" value="Other">Time (30m interval)</option>
+					<option style="color:gray" value="Pinete">09:00 - 09:30</option>
+					<option style="color:gray" value="Pinete">09:30 - 10:00</option>
+					<option style="color:gray" value="Pinete">10:00 - 10:30</option>
+					<option style="color:gray" value="Pinete">10:30 - 11:00</option>
+					<option style="color:gray" value="Pinete">11:00 - 11:30</option>
+					<option style="color:gray" value="Pinete">11:30 - 12:00</option>
+					<option style="color:gray" value="Pinete">12:00 - 12:30</option>
+					<option style="color:gray" value="Pinete">12:30 - 01:00</option>
+					<option style="color:gray" value="Pinete">01:00 - 01:30</option>
+					<option style="color:gray" value="Pinete">01:30 - 02:00</option>
+					<option style="color:gray" value="Pinete">02:00 - 02:30</option>
+					<option style="color:gray" value="Pinete">02:30 - 03:00</option>
+				</select>
+				<input type="submit" value="Submit appointment"/>
+			</form>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="copyright">
+					<li>&copy; Jonas Smith</li>
+				</ul>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>
