@@ -946,10 +946,10 @@
 		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.2s ease-in-out;
-		background-color: #1cb495;
+		background-color: #f2c641;
 		border-radius: 6px;
 		border: 0;
-		color: #ffffff !important;
+		color: #000000 !important;
 		cursor: pointer;
 		display: inline-block;
 		font-weight: 700;
@@ -967,6 +967,7 @@
 		button:hover,
 		.button:hover {
 			background-color: #1fcaa7;
+			color: #ffffff !important;
 		}
 
 		input[type="submit"]:active,
