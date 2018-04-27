@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Advising</title>
+		<title>Advising - Jonas Smith</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -9,53 +9,55 @@
 	<body>
 		<!-- Header -->
 			<header id="header">
-				<h1>Advising appointment</h1>
+				<h1>Advising appointment's</h1>
 			</header>
 
 		<!-- Signup Form -->
 			<form id="signup-form" method="post" action="#">
 					<script>
+					// Script needs to be inside of the form for it to work
+					// this script gets the value selected and returns the data.
 							function advChange() {
 								switch(document.getElementById('advSelect').value){
-							case '0': 
+							case '0':
 								document.getElementById('phone').value ='Office phone number';
-								document.getElementById('email').value ='Advisor email address';
-								break;   
-							case '1': 
+								document.getElementById('email').value ='Adviser email address';
+								break;
+							case '1':
 								document.getElementById('phone').value ='1-417-369-2309';
 								document.getElementById('email').value ='pinete@mssu.edu';
-								break;   
-							case '2': 
+								break;
+							case '2':
 								document.getElementById('phone').value ='1-417-369-2310';
 								document.getElementById('email').value ='collins@mssu.edu';
-								break;          
-							case '3': 
+								break;
+							case '3':
 								document.getElementById('phone').value ='1-417-369-2311';
 								document.getElementById('email').value ='oaks@mssu.edu';
-								break;          
-							case '4': 
+								break;
+							case '4':
 								document.getElementById('phone').value ='1-417-369-2312';
 								document.getElementById('email').value ='boswell@mssu.edu';
-								break;          
-							case '5': 
+								break;
+							case '5':
 								document.getElementById('phone').value ='1-417-369-2313';
 								document.getElementById('email').value ='curtis@mssu.edu';
-								break;          
+								break;
 								}
-							}	
+							}
 						</script>
 				<select style="width: 100px" onchange="advChange()" id="advSelect" onclick="advChange()">
-					<option style="color:gray" value="0">Advisor</option>
+					<option style="color:gray" value="0">Adviser</option>
 					<option style="color:gray" value="1">Pinete</option>
 					<option style="color:gray" value="2">Collins</option>
 					<option style="color:gray" value="3">Oaks</option>
 					<option style="color:gray" value="4">Boswell</option>
 					<option style="color:gray" value="5">Curtis</option>
 				</select>
-				<input type="email" id="email" placeholder="Advisor email address" />
+				<input type="email" id="email" placeholder="Adviser email address" />
 				<input type="text" name="phone" id="phone" placeholder="Office phone number" />
 
-				<select style="width: 100px">
+				<select style="width: 150px">
 					<option style="color:gray" value="0"> Day </option>
 					<option style="color:gray" value="1"> Monday</option>
 					<option style="color:gray" value="2"> Tuesday</option>
@@ -63,7 +65,7 @@
 					<option style="color:gray" value="4"> Thursday</option>
 					<option style="color:gray" value="5"> Friday</option>
 				</select>
-				
+
 				<select style="width: 200px">
 					<option style="color:gray" value="Other">Time (30m interval)</option>
 					<option style="color:gray" value="Pinete">09:00 - 09:30</option>
