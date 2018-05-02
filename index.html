@@ -9,11 +9,11 @@
 	<body>
 		<!-- Header -->
 			<header id="header">
-				<h1>MSSU Advising appointment's</h1>
+				<h1 name="title">MSSU Advising appointment's</h1>
 			</header>
 
 		<!-- Signup Form -->
-			<form id="signup-form" method="post" action="#">
+			<form id="signup-form">
 					<script>
 					// Script needs to be inside of the form for it to work
 					// this script gets the value selected and returns the data.
@@ -45,8 +45,20 @@
 								break;
 								}
 							}
+
+							function ButtonClick()
+							{
+								if(document.getElementById('name').value == '')
+								{
+									document.getElementById('name').value ='appointment reserved';
+								}
+								else if(document.getElementById('title').value == 'Your name')
+							  {
+									document.getElementById('name').value ='please enter a name';
+								}
+							}
 						</script>
-				<select style="width: 120px" onchange="advChange()" id="advSelect" onclick="advChange()">
+				<select style="width: 200px" onchange="advChange()" id="advSelect" onclick="advChange()">
 					<option style="color:gray" value="0">Adviser</option>
 					<option style="color:gray" value="1">Pinete</option>
 					<option style="color:gray" value="2">Collins</option>
@@ -54,14 +66,14 @@
 					<option style="color:gray" value="4">Boswell</option>
 					<option style="color:gray" value="5">Curtis</option>
 				</select>
-				<input type="email" id="email" style="width: 200px" placeholder="Adviser email address" />
+				<input type="email" id="email" style="width: 250px" placeholder="Adviser email address" />
 				<input type="text" name="phone" id="phone" placeholder="Office phone number" />
 			</form>
 
-			<form id="signup-form" method="post" action="#">
+			<form id="signup-form">
 				&nbsp &nbsp &nbsp
 
-				<select style="width: 120px">
+				<select style="width: 200px">
 					<option style="color:gray" value="0"> Day </option>
 					<option style="color:gray" value="1"> Monday</option>
 					<option style="color:gray" value="2"> Tuesday</option>
@@ -72,8 +84,8 @@
 
 				<!-- https://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable -->
 
-				<select style="width: 200px">
-					<option style="color:gray" value="Other">Time (30m interval) </option>
+				<select style="width: 250px">
+					<option style="color:gray" value="Other">Time (30m) </option>
 					<option style="color:gray" value="Pinete">09:00 - 09:30 </option>
 					<option style="color:gray" value="Pinete">09:30 - 10:00 </option>
 					<option style="color:gray" value="Pinete">10:00 - 10:30 </option>
@@ -89,7 +101,7 @@
 				</select>
 
 				<input type="text" id="name" placeholder=" Your name" />
-				<input type="submit" value="Submit appointment" />
+				<input type="submit" onclick="ButtonClick()" value="Submit appointment" />
 			</form>
 
 		<!-- Footer -->
