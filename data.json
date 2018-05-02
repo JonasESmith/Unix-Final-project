@@ -1,0 +1,42 @@
+adviser = {
+	"name" : "Pinete",
+	"days" : [
+		{"day" : "Monday",   "times" : []},
+		{"day" : "Tuesday",  "times" : []},
+		{"day" : "Wednsday", "times" : []},
+		{"day" : "Thursday", "times" : []},
+		{"day" : "Friday",   "times" : []},
+	],
+	"name" : "Collins",
+	"days" : [
+		{"day" : "Monday",   "times" : []},
+		{"day" : "Tuesday",  "times" : []},
+		{"day" : "Wednsday", "times" : []},
+		{"day" : "Thursday", "times" : []},
+		{"day" : "Friday",   "times" : []},
+	],
+	"name" : "Oaks",
+	"days" : [
+		{"day" : "Monday",   "times" : []},
+		{"day" : "Tuesday",  "times" : []},
+		{"day" : "Wednsday", "times" : []},
+		{"day" : "Thursday", "times" : []},
+		{"day" : "Friday",   "times" : []},
+	],
+	"name" : "Boswell",
+	"days" : [
+		{"day" : "Monday",   "times" : []},
+		{"day" : "Tuesday",  "times" : []},
+		{"day" : "Wednsday", "times" : []},
+		{"day" : "Thursday", "times" : []},
+		{"day" : "Friday",   "times" : []},
+	],
+	"name" : "Curtis",
+	"days" : [
+		{"day" : "Monday",   "times" : []},
+		{"day" : "Tuesday",  "times" : []},
+		{"day" : "Wednsday", "times" : []},
+		{"day" : "Thursday", "times" : []},
+		{"day" : "Friday",   "times" : []},
+	]
+}

@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body>
+
 		<!-- Header -->
 			<header id="header">
 				<h1 name="title">MSSU Advising appointment's</h1>
@@ -15,6 +16,49 @@
 		<!-- Signup Form -->
 			<form id="signup-form">
 					<script>
+
+					var adviser = {
+						"name" : "Pinete",
+						"days" : [
+							{"day" : "Monday",   "times" : []},
+							{"day" : "Tuesday",  "times" : []},
+							{"day" : "Wednsday", "times" : []},
+							{"day" : "Thursday", "times" : []},
+							{"day" : "Friday",   "times" : []},
+						],
+						"name" : "Collins",
+						"days" : [
+							{"day" : "Monday",   "times" : []},
+							{"day" : "Tuesday",  "times" : []},
+							{"day" : "Wednsday", "times" : []},
+							{"day" : "Thursday", "times" : []},
+							{"day" : "Friday",   "times" : []},
+						],
+						"name" : "Oaks",
+						"days" : [
+							{"day" : "Monday",   "times" : []},
+							{"day" : "Tuesday",  "times" : []},
+							{"day" : "Wednsday", "times" : []},
+							{"day" : "Thursday", "times" : []},
+							{"day" : "Friday",   "times" : []},
+						],
+						"name" : "Boswell",
+						"days" : [
+							{"day" : "Monday",   "times" : []},
+							{"day" : "Tuesday",  "times" : []},
+							{"day" : "Wednsday", "times" : []},
+							{"day" : "Thursday", "times" : []},
+							{"day" : "Friday",   "times" : []},
+						],
+						"name" : "Curtis",
+						"days" : [
+							{"day" : "Monday",   "times" : []},
+							{"day" : "Tuesday",  "times" : []},
+							{"day" : "Wednsday", "times" : []},
+							{"day" : "Thursday", "times" : []},
+							{"day" : "Friday",   "times" : []},
+						]
+					}
 					// Script needs to be inside of the form for it to work
 					// this script gets the value selected and returns the data.
 							function advChange() {
@@ -22,29 +66,66 @@
 							case '0':
 								document.getElementById('phone').value ='Office phone number';
 								document.getElementById('email').value ='Adviser email address';
+								LoadComboBoxes();
 								break;
 							case '1':
 								document.getElementById('phone').value ='1-417-369-2309';
 								document.getElementById('email').value ='pinete@mssu.edu';
+								LoadComboBoxes();
 								break;
 							case '2':
 								document.getElementById('phone').value ='1-417-369-2310';
 								document.getElementById('email').value ='collins@mssu.edu';
+								LoadComboBoxes();
 								break;
 							case '3':
 								document.getElementById('phone').value ='1-417-369-2311';
 								document.getElementById('email').value ='oaks@mssu.edu';
+								LoadComboBoxes();
 								break;
 							case '4':
 								document.getElementById('phone').value ='1-417-369-2312';
 								document.getElementById('email').value ='boswell@mssu.edu';
+								LoadComboBoxes();
 								break;
 							case '5':
 								document.getElementById('phone').value ='1-417-369-2313';
 								document.getElementById('email').value ='curtis@mssu.edu';
+								LoadComboBoxes();
 								break;
 								}
 							}
+
+
+							function LoadComboBoxes()
+							{
+								var select = document.getElementById("timeSelect");
+								var length = select.options.length;
+								for (i = 0; i < length; i++) {
+  								select.empty();
+								}
+
+								var select = document.getElementById('timeSelect');
+
+								//Create array of options to be added
+								var array = ["09:00 - 09:30","09:30 - 10:00","10:00 - 10:30","10:30 - 11:00",
+								             "11:00 - 11:30","11:30 - 12:00","12:00 - 12:30","12:30 - 01:00",
+														 "01:00 - 01:30","01:30 - 02:00","02:00 - 02:30","02:30 - 03:00"];
+
+								var currentAdv = document.getElementById('advSelect').value;
+
+								for (var i = 0; i<=11; i++)
+								{
+										if (true) {
+											var opt = document.createElement('option');
+								    	opt.value = i;
+											opt.style="color:grey";
+								    	opt.innerHTML = array[i];
+								    	select.appendChild(opt);
+									}
+								}
+							}
+
 
 							function ButtonClick()
 							{
@@ -57,14 +138,15 @@
 									document.getElementById('name').value ='please enter a name';
 								}
 							}
+
 						</script>
-				<select style="width: 200px" onchange="advChange()" id="advSelect" onclick="advChange()">
-					<option style="color:gray" value="0">Adviser</option>
-					<option style="color:gray" value="1">Pinete</option>
-					<option style="color:gray" value="2">Collins</option>
-					<option style="color:gray" value="3">Oaks</option>
-					<option style="color:gray" value="4">Boswell</option>
-					<option style="color:gray" value="5">Curtis</option>
+				<select style="width: 200px" id="advSelect" onchange="advChange() ">
+					<option style="color:gray" value="0" >Adviser</option>
+					<option style="color:gray" value="1" >Pinete</option>
+					<option style="color:gray" value="2" >Collins</option>
+					<option style="color:gray" value="3" >Oaks</option>
+					<option style="color:gray" value="4" >Boswell</option>
+					<option style="color:gray" value="5" >Curtis</option>
 				</select>
 				<input type="email" id="email" style="width: 250px" placeholder="Adviser email address" />
 				<input type="text" name="phone" id="phone" placeholder="Office phone number" />
@@ -84,20 +166,10 @@
 
 				<!-- https://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable -->
 
-				<select style="width: 250px">
-					<option style="color:gray" value="Other">Time (30m) </option>
-					<option style="color:gray" value="Pinete">09:00 - 09:30 </option>
-					<option style="color:gray" value="Pinete">09:30 - 10:00 </option>
-					<option style="color:gray" value="Pinete">10:00 - 10:30 </option>
-					<option style="color:gray" value="Pinete">10:30 - 11:00 </option>
-					<option style="color:gray" value="Pinete">11:00 - 11:30 </option>
-					<option style="color:gray" value="Pinete">11:30 - 12:00 </option>
-					<option style="color:gray" value="Pinete">12:00 - 12:30 </option>
-					<option style="color:gray" value="Pinete">12:30 - 01:00 </option>
-					<option style="color:gray" value="Pinete">01:00 - 01:30 </option>
-					<option style="color:gray" value="Pinete">01:30 - 02:00 </option>
+				<select style="width: 250px" id="timeSelect">
+					<!--
 					<option style="color:gray" value="Pinete">02:00 - 02:30 </option>
-					<option style="color:gray" value="Pinete">02:30 - 03:00 </option>
+					<option style="color:gray" value="Pinete">02:30 - 03:00 </option> -->
 				</select>
 
 				<input type="text" id="name" placeholder=" Your name" />
