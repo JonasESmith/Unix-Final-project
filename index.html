@@ -17,48 +17,10 @@
 			<form id="signup-form">
 					<script>
 
-					var adviser = {
-						"name" : "Pinete",
-						"days" : [
-							{"day" : "Monday",   "times" : []},
-							{"day" : "Tuesday",  "times" : []},
-							{"day" : "Wednsday", "times" : []},
-							{"day" : "Thursday", "times" : []},
-							{"day" : "Friday",   "times" : []},
-						],
-						"name" : "Collins",
-						"days" : [
-							{"day" : "Monday",   "times" : []},
-							{"day" : "Tuesday",  "times" : []},
-							{"day" : "Wednsday", "times" : []},
-							{"day" : "Thursday", "times" : []},
-							{"day" : "Friday",   "times" : []},
-						],
-						"name" : "Oaks",
-						"days" : [
-							{"day" : "Monday",   "times" : []},
-							{"day" : "Tuesday",  "times" : []},
-							{"day" : "Wednsday", "times" : []},
-							{"day" : "Thursday", "times" : []},
-							{"day" : "Friday",   "times" : []},
-						],
-						"name" : "Boswell",
-						"days" : [
-							{"day" : "Monday",   "times" : []},
-							{"day" : "Tuesday",  "times" : []},
-							{"day" : "Wednsday", "times" : []},
-							{"day" : "Thursday", "times" : []},
-							{"day" : "Friday",   "times" : []},
-						],
-						"name" : "Curtis",
-						"days" : [
-							{"day" : "Monday",   "times" : []},
-							{"day" : "Tuesday",  "times" : []},
-							{"day" : "Wednsday", "times" : []},
-							{"day" : "Thursday", "times" : []},
-							{"day" : "Friday",   "times" : []},
-						]
-					}
+					var list = [
+						{name : "Pinete", days : ["Monday" , "Tuesday", "Wednesday", "Thursday", "Friday"] },
+						{name : "Collins", days : ["Monday", "Tuesday", "Wednesday"] },
+					];
 					// Script needs to be inside of the form for it to work
 					// this script gets the value selected and returns the data.
 							function advChange() {
@@ -102,7 +64,7 @@
 								var select = document.getElementById("timeSelect");
 								var length = select.options.length;
 								for (i = 0; i < length; i++) {
-  								select.empty();
+  								select.Empty();
 								}
 
 								var select = document.getElementById('timeSelect');
@@ -112,7 +74,8 @@
 								             "11:00 - 11:30","11:30 - 12:00","12:00 - 12:30","12:30 - 01:00",
 														 "01:00 - 01:30","01:30 - 02:00","02:00 - 02:30","02:30 - 03:00"];
 
-								var currentAdv = document.getElementById('advSelect').value;
+								var x = document.getElementById('advSelect').selectedIndex;
+								var y = document.getElementById('daySelect').selectedIndex;
 
 								for (var i = 0; i<=11; i++)
 								{
@@ -124,19 +87,9 @@
 								    	select.appendChild(opt);
 									}
 								}
-							}
 
-
-							function ButtonClick()
-							{
-								if(document.getElementById('name').value == '')
-								{
-									document.getElementById('name').value ='appointment reserved';
-								}
-								else if(document.getElementById('title').value == 'Your name')
-							  {
-									document.getElementById('name').value ='please enter a name';
-								}
+								document.getElementById('advSelect').selectedIndex = 0;
+								x = document.getElementById('advSelect').selectedIndex;
 							}
 
 						</script>
@@ -155,7 +108,7 @@
 			<form id="signup-form">
 				&nbsp &nbsp &nbsp
 
-				<select style="width: 200px">
+				<select style="width: 200px" id="daySelect">
 					<option style="color:gray" value="0"> Day </option>
 					<option style="color:gray" value="1"> Monday</option>
 					<option style="color:gray" value="2"> Tuesday</option>
