@@ -10,7 +10,7 @@
 
 		<!-- Header -->
 			<header id="header">
-				<h1 name="title">MSSU Advising appointment's</h1>
+				<h1 name="title">MSSU Advising Appointment's</h1> <!-- MSSU ADVISING APPOINTMENT's -->
 			</header>
 
 		<!-- Signup Form -->
@@ -18,9 +18,73 @@
 					<script>
 
 					var list = [
-						{name : "Pinete", days : ["Monday" , "Tuesday", "Wednesday", "Thursday", "Friday"] },
-						{name : "Collins", days : ["Monday", "Tuesday", "Wednesday"] },
+						{name : "Pinete",
+						Monday : ["09:30 - 10:00", "02:00 - 02:30", "11:30 - 12:00"],
+						Tuesday: [],
+						Wednesday : [],
+						Thursday : [],
+						Friday : []
+					  },
+						{name : "Collins",
+						Monday : ["09:30 - 10:00", "02:00 - 02:30", "11:30 - 12:00"],
+						Tuesday: [],
+						Wednesday : [],
+						Thursday : [],
+						Friday : []
+					  },
+						{name : "Oaks",
+						Monday : ["09:30 - 10:00", "02:00 - 02:30", "11:30 - 12:00"],
+						Tuesday: [],
+						Wednesday : [],
+						Thursday : [],
+						Friday : []
+					  },
+						{name : "Boswell",
+						Monday : ["09:30 - 10:00", "02:00 - 02:30", "11:30 - 12:00"],
+						Tuesday: [],
+						Wednesday : [],
+						Thursday : [],
+						Friday : []
+					  },
+						{name : "Curtis",
+						Monday : ["09:30 - 10:00", "02:00 - 02:30", "11:30 - 12:00"],
+						Tuesday: [],
+						Wednesday : [],
+						Thursday : [],
+						Friday : []
+					  },
 					];
+
+							function ButtonClick() {
+								var e = document.getElementById("timeSelect");
+								var time = e.options[e.selectedIndex].text;
+
+								var x = document.getElementById('advSelect').value;
+								var adv = parseInt(x);
+
+								switch(document.getElementById('daySelect').value){
+										case '0':
+										list[adv].Monday.push(time);
+										break;
+
+										case '1':
+										list[adv].Tuesday.push(time);
+										break;
+
+										case '2':
+										list[adv].Wednsday.push(time);
+										break;
+
+										case '3':
+										list[adv].Thursday.push(time);
+										break;
+
+										case '4':
+										list[adv].Friday.push(time);
+										break;
+									}
+								return false;
+							}
 					// Script needs to be inside of the form for it to work
 					// this script gets the value selected and returns the data.
 							function advChange() {
@@ -28,44 +92,47 @@
 							case '0':
 								document.getElementById('phone').value ='Office phone number';
 								document.getElementById('email').value ='Adviser email address';
-								LoadComboBoxes();
 								break;
 							case '1':
 								document.getElementById('phone').value ='1-417-369-2309';
 								document.getElementById('email').value ='pinete@mssu.edu';
-								LoadComboBoxes();
 								break;
 							case '2':
 								document.getElementById('phone').value ='1-417-369-2310';
 								document.getElementById('email').value ='collins@mssu.edu';
-								LoadComboBoxes();
 								break;
 							case '3':
 								document.getElementById('phone').value ='1-417-369-2311';
 								document.getElementById('email').value ='oaks@mssu.edu';
-								LoadComboBoxes();
 								break;
 							case '4':
 								document.getElementById('phone').value ='1-417-369-2312';
 								document.getElementById('email').value ='boswell@mssu.edu';
-								LoadComboBoxes();
 								break;
 							case '5':
 								document.getElementById('phone').value ='1-417-369-2313';
 								document.getElementById('email').value ='curtis@mssu.edu';
-								LoadComboBoxes();
 								break;
 								}
+							}
+
+							function DayChange()
+							{
+								if(document.getElementById('daySelect').selectedIndex !== "8")
+								{
+									LoadComboBoxes();
+								}
+							}
+
+							function ExitMethods()
+							{
+
 							}
 
 
 							function LoadComboBoxes()
 							{
-								var select = document.getElementById("timeSelect");
-								var length = select.options.length;
-								for (i = 0; i < length; i++) {
-  								select.Empty();
-								}
+								document.getElementById("timeSelect").options.length = 0;
 
 								var select = document.getElementById('timeSelect');
 
@@ -74,32 +141,168 @@
 								             "11:00 - 11:30","11:30 - 12:00","12:00 - 12:30","12:30 - 01:00",
 														 "01:00 - 01:30","01:30 - 02:00","02:00 - 02:30","02:30 - 03:00"];
 
-								var x = document.getElementById('advSelect').selectedIndex;
+								var x = document.getElementById('advSelect').value;
 								var y = document.getElementById('daySelect').selectedIndex;
+								var adv = parseInt(x);
 
-								for (var i = 0; i<=11; i++)
-								{
-										if (true) {
+
+								/// Loads values in time picker forwhich the time is either available or not
+								switch (document.getElementById('daySelect').value) {
+									case '0':
+									for (var i = 0; i<=11; i++)
+									{
+										var isChecked = false;
+										for(var j = 0; j < list[adv].Monday.length; j++)
+										{
+											if (list[adv].Monday[j] == array[i])
+											{
+												var opt = document.createElement('option');
+												opt.value = i;
+												opt.style="color:green";
+												opt.style="background-color: Orange";
+												opt.disabled = true;
+												opt.innerHTML = array[i] + " - Unavailable";
+												select.appendChild(opt);
+												isChecked = true;
+											}
+										}
+										if(isChecked == false)
+										{
 											var opt = document.createElement('option');
-								    	opt.value = i;
+											opt.value = i;
 											opt.style="color:grey";
-								    	opt.innerHTML = array[i];
-								    	select.appendChild(opt);
+											opt.innerHTML = array[i];
+											select.appendChild(opt);
+										}
 									}
-								}
+									break;
 
-								document.getElementById('advSelect').selectedIndex = 0;
-								x = document.getElementById('advSelect').selectedIndex;
+									case '1':
+									for (var i = 0; i<=11; i++)
+									{
+										var isChecked = false;
+										for(var j = 0; j < list[adv].Tuesday.length; j++)
+										{
+											if (list[adv].Tuesday[j] == array[i])
+											{
+												var opt = document.createElement('option');
+												opt.value = i;
+												opt.style="color:green";
+												opt.style="background-color: Orange";
+												opt.disabled = true;
+												opt.innerHTML = array[i] + " - Unavailable";
+												select.appendChild(opt);
+												isChecked = true;
+											}
+										}
+										if(isChecked == false)
+										{
+											var opt = document.createElement('option');
+											opt.value = i;
+											opt.style="color:grey";
+											opt.innerHTML = array[i];
+											select.appendChild(opt);
+										}
+									}
+									break;
+
+									case '2':
+									for (var i = 0; i<=11; i++)
+									{
+										var isChecked = false;
+										for(var j = 0; j < list[adv].Wednsday.length; j++)
+										{
+											if (list[adv].Wednsday[j] == array[i])
+											{
+												var opt = document.createElement('option');
+												opt.value = i;
+												opt.style="color:green";
+												opt.style="background-color: Orange";
+												opt.disabled = true;
+												opt.innerHTML = array[i] + " - Unavailable";
+												select.appendChild(opt);
+												isChecked = true;
+											}
+										}
+										if(isChecked == false)
+										{
+											var opt = document.createElement('option');
+											opt.value = i;
+											opt.style="color:grey";
+											opt.innerHTML = array[i];
+											select.appendChild(opt);
+										}
+									}
+									break;
+
+									case '3':
+									for (var i = 0; i<=11; i++)
+									{
+										var isChecked = false;
+										for(var j = 0; j < list[adv].Thursday.length; j++)
+										{
+											if (list[adv].Thursday[j] == array[i])
+											{
+												var opt = document.createElement('option');
+												opt.value = i;
+												opt.style="color:green";
+												opt.style="background-color: Orange";
+												opt.disabled = true;
+												opt.innerHTML = array[i] + " - Unavailable";
+												select.appendChild(opt);
+												isChecked = true;
+											}
+										}
+										if(isChecked == false)
+										{
+											var opt = document.createElement('option');
+											opt.value = i;
+											opt.style="color:grey";
+											opt.innerHTML = array[i];
+											select.appendChild(opt);
+										}
+									}
+									break;
+
+									case '4':
+									for (var i = 0; i<=11; i++)
+									{
+										var isChecked = false;
+										for(var j = 0; j < list[adv].Friday.length; j++)
+										{
+											if (list[adv].Friday[j] == array[i])
+											{
+												var opt = document.createElement('option');
+												opt.value = i;
+												opt.style="color:green";
+												opt.style="background-color: Orange";
+												opt.disabled = true;
+												opt.innerHTML = array[i] + " - Unavailable";
+												select.appendChild(opt);
+												isChecked = true;
+											}
+										}
+										if(isChecked == false)
+										{
+											var opt = document.createElement('option');
+											opt.value = i;
+											opt.style="color:grey";
+											opt.innerHTML = array[i];
+											select.appendChild(opt);
+										}
+									}
+									break;
+								}
 							}
 
 						</script>
-				<select style="width: 200px" id="advSelect" onchange="advChange() ">
-					<option style="color:gray" value="0" >Adviser</option>
-					<option style="color:gray" value="1" >Pinete</option>
-					<option style="color:gray" value="2" >Collins</option>
-					<option style="color:gray" value="3" >Oaks</option>
-					<option style="color:gray" value="4" >Boswell</option>
-					<option style="color:gray" value="5" >Curtis</option>
+				<select style="width: 200px" id="advSelect" onchange="advChange()">
+					<option style="color:gray" >Adviser</option>
+					<option style="color:gray" value="0" >Pinete</option>
+					<option style="color:gray" value="1" >Collins</option>
+					<option style="color:gray" value="2" >Oaks</option>
+					<option style="color:gray" value="3" >Boswell</option>
+					<option style="color:gray" value="4" >Curtis</option>
 				</select>
 				<input type="email" id="email" style="width: 250px" placeholder="Adviser email address" />
 				<input type="text" name="phone" id="phone" placeholder="Office phone number" />
@@ -108,25 +311,26 @@
 			<form id="signup-form">
 				&nbsp &nbsp &nbsp
 
-				<select style="width: 200px" id="daySelect">
-					<option style="color:gray" value="0"> Day </option>
-					<option style="color:gray" value="1"> Monday</option>
-					<option style="color:gray" value="2"> Tuesday</option>
-					<option style="color:gray" value="3"> Wednsday</option>
-					<option style="color:gray" value="4"> Thursday</option>
-					<option style="color:gray" value="5"> Friday</option>
+				<select style="width: 200px" id="daySelect" onchange="DayChange()">
+					<option style="color:gray" value="8"> Day </option>
+					<option style="color:gray" value="0"> Monday</option>
+					<option style="color:gray" value="1"> Tuesday</option>
+					<option style="color:gray" value="2"> Wednsday</option>
+					<option style="color:gray" value="3"> Thursday</option>
+					<option style="color:gray" value="4"> Friday</option>
 				</select>
 
 				<!-- https://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable -->
 
 				<select style="width: 250px" id="timeSelect">
+					<option> Time </option>
 					<!--
 					<option style="color:gray" value="Pinete">02:00 - 02:30 </option>
 					<option style="color:gray" value="Pinete">02:30 - 03:00 </option> -->
 				</select>
 
 				<input type="text" id="name" placeholder=" Your name" />
-				<input type="submit" onclick="ButtonClick()" value="Submit appointment" />
+				<input type="submit" onclick="return ButtonClick()" value="Submit appointment" />
 			</form>
 
 		<!-- Footer -->
