@@ -3,5 +3,5 @@ A webpage I created for a final project to help students make an appointment wit
 
 ### Form
 <p align="left">
-  <img src="images/webPage.PNG" alt="icon">
+  <img src="images/webPage.png" alt="icon">
 </p>
